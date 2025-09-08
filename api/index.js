@@ -40,5 +40,10 @@ app.post('/api/wyczysc-licencje', (req, res) => {
     res.json({ message: 'Dane zostały wyczyszczone' });
 });
 
+// Nasłuchiwanie na porcie
+app.listen(port, () => {
+  console.log(`Serwer nasłuchuje na porcie ${port}`);
+});
+
 // To jest najważniejsza linia, która eksportuje aplikację
 module.exports = app;
