@@ -27,9 +27,10 @@
   const output = document.getElementById("newLicense");
   const list = document.getElementById("licenseList");
   
-  const GENERATE_LICENSE_URL = "https://licencje-serwer.onrender.com/api/generuj-licencje";
-const LICENSE_LIST_URL = "https://licencje-serwer.onrender.com/api/lista-licencji";
-const CLEAR_LICENSES_URL = "https://licencje-serwer.onrender.com/api/wyczysc-licencje";
+  const BASE_URL = "https://licencje-serwer.onrender.com/api";
+  const GENERATE_LICENSE_URL = `${BASE_URL}/generuj-licencje`;
+  const LICENSE_LIST_URL = `${BASE_URL}/lista-licencji`;
+  const CLEAR_LICENSES_URL = `${BASE_URL}/wyczysc-licencje`;
 
   function fetchAndRenderLicenses() {
     fetch(LICENSE_LIST_URL)
