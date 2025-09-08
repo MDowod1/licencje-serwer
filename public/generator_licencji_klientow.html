@@ -22,6 +22,7 @@
   </div>
 
   <script>
+  // Twój obecny kod generowania licencji
   const btn = document.getElementById("generateBtn");
   const clearBtn = document.getElementById("clearBtn");
   const output = document.getElementById("newLicense");
@@ -48,9 +49,7 @@
   fetchAndRenderLicenses();
 
   btn.addEventListener("click", () => {
-    fetch(GENERATE_LICENSE_URL, {
-        method: "POST"
-    })
+    fetch(GENERATE_LICENSE_URL, { method: "POST" })
     .then(response => response.json())
     .then(data => {
         output.textContent = "Nowa licencja: " + data.kod;
@@ -66,7 +65,16 @@
         fetchAndRenderLicenses();
       });
   });
+
+  // -----------------------------
+  // Tutaj dodaj pingowanie serwera
+  setInterval(() => {
+    fetch('https://licencje-serwer.onrender.com/api')
+      .then(res => console.log('Ping! Serwer działa'))
+      .catch(err => console.log('Serwer nie obudził się jeszcze'));
+  }, 5 * 60 * 1000); // co 5 minut
 </script>
+
 </body>
 </html>
 
