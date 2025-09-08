@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
 
 // Middleware do parsowania danych JSON z zapytań
 app.use(express.json());
@@ -38,11 +37,6 @@ app.post('/api/wyczysc-licencje', (req, res) => {
     generatedLicenses = [];
     console.log('Wszystkie licencje usunięte.');
     res.json({ message: 'Dane zostały wyczyszczone' });
-});
-
-// Nasłuchiwanie na porcie
-app.listen(port, () => {
-  console.log(`Serwer nasłuchuje na porcie ${port}`);
 });
 
 // To jest najważniejsza linia, która eksportuje aplikację
