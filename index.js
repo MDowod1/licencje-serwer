@@ -2,14 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Middleware do parsowania danych JSON z zapytań
 app.use(express.json());
 app.use(cors());
 
-// Użyj tej zmiennej do przechowywania wygenerowanych licencji
 let generatedLicenses = [];
 
-// Endpoint do generowania nowej licencji
 app.post('/api/generuj-licencje', (req, res) => {
     const newLicenseCode = "LICENCJA-" + Math.floor(100000 + Math.random() * 900000);
     generatedLicenses.push(newLicenseCode);
@@ -39,5 +36,4 @@ app.post('/api/wyczysc-licencje', (req, res) => {
     res.json({ message: 'Dane zostały wyczyszczone' });
 });
 
-// To jest najważniejsza linia, która eksportuje aplikację
 module.exports = app;
